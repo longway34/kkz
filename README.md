@@ -66,5 +66,24 @@
 Экран настройки порогов. 
 
 ![div_index.html](https://raw.githubusercontent.com/longway34/kkz/main/Common/demo_images/div_index.png "div_index.html")
+Экран методологических работ.
+
+ПО представлено как часть данного репозитория [web-07_1](https://github.com/longway34/kkz/tree/main/Web-07_1).
+При написании (представленной демо-версии) были использованы следующие программные средства и библиотеки:
+* HTML5, JavaScript;
+* jQuery JavaScript Library v2.1.3. Copyright 2005, 2014 jQuery Foundation, Inc. and other contributors.
+* Blob.js 2014-07-24 By Eli Grey, http://eligrey.com, Devin Samarin, https://github.com/dsamarin.
+* Javascript plotting library for jQuery, version 0.8.3. Copyright (c) 2007-2014 IOLA and Ole Laursen (графики)
+
+Средство разработки.
+Для разработки и представления данной демо-версии использовались:
+* IDE:
+![NetBeans](https://raw.githubusercontent.com/longway34/kkz/main/Common/demo_images/NetBeans.png "NetBeans")
+
+* Среда разработки подготовлена с использованием:
+![VirtualBox](https://raw.githubusercontent.com/longway34/kkz/main/Common/demo_images/VirtualBox.png "VirtualBox")
+
+---
+
 
 
