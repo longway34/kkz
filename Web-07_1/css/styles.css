@@ -1,0 +1,116 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24.07.2016, 10:41:24
+    Author     : longway
+*/
+
+body {
+    display: table-cell;
+    background: url(../images/logo_2.jpg);
+    background-position: center;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.mainFrame { 
+    width: 990px;
+    
+    background-image: url(../images/texture.png);
+    background-position: center;
+    vertical-align: middle;
+}
+
+#divGrCanva {
+    width: 100%;
+    height: 200px;
+    border: 1px;
+    text-align: center;
+    vertical-align: central;
+    background-color: whitesmoke;
+}
+
+.popup_forms{
+    border: 1px solid blue;
+    border-radius: 20px 10px 5px 0; 
+    background: gray;
+    position: absolute;
+    text-align: center;
+    display: none;
+    z-index: 5;
+    margin: 5px;
+    padding: 20px;
+    
+}
+
+.form_passwd {
+    left: 0px;
+    bottom: -25px;
+    width: 140px;
+}
+.form_confirm{
+    left: 0px;
+    bottom: -25px;
+    width: 450px;
+}
+.form_modal_buttom{
+    width: 100px;
+    margin: 5px;
+}
+
+.form_confirm_value{
+    font-style: italic;
+    font-weight: bold;
+}
+
+.textStates{
+    color: blue;
+}
+
+/*:focus {
+    background: #abcdef;
+}*/
+
+.modal_close{
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    display: block;
+}
+
+.sigma_len{
+    width: 50px;
+}
+
+.ather{
+    background: #abcdef;
+    font-weight: bold;
+    color: darkblue;
+}
+
+#overlay{
+    z-index: 3;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: black;
+    opacity: 0.5;
+    display: none;
+}
+
+.lb {
+    font-weight: bold;
+}
+
+.td_ev{
+    text-align: right;
+}
+

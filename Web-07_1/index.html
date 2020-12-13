@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Настройка ККЗ-1М</title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+  <!--<meta charset="utf-8" lang="ru">-->
+  
+  <link type="text/css" href="css/styles.css" rel="stylesheet" />
+  
+  <!--<script type="text/javascript" src="js/jquery-2.1.3.min.js" charset="UTF-8"></script>-->
+  <script type="text/javascript" src="js/jquery-3.1.0.js" charset="UTF-8"></script>
+  <!--<script type="text/javascript" src="js/jquery-ui.min.js" charset="UTF-8"></script>-->
+  <script type="text/javascript" src="js/jquery.flot.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/jquery.flot.time.js" charset="UTF-8"></script>
+
+  <!--<script type="text/javascript" src="js/constants.js" charset="UTF-8"></script>-->
+  <script type="text/javascript" src="js/parser_xml_data.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/scripts.js" charset="UTF-8"></script>
+</head>
+<body>
+    
+<div id="overlay"></div><!-- Пoдлoжкa -->
+<div class="mainFrame">
+<table class="mainFrame" border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>
+      <table style="text-align: left;" class="mainFrame" border="0" cellpadding="2" cellspacing="0">
+        <tbody>
+          <tr>
+              <td style="width: 104px; height: 98px;"><span id="iLogo"><img style="width: 96px; height: 84px;" alt="" title="ООО &quot;Технорос&quot;" src="images/logo.jpg"/></span></td>
+            <td style="width: 266px; height: 98px; border-left: 1px; border-left-style: solid">
+            <table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td style="vertical-align: middle;"><big style="font-family: Times New Roman,Times,serif; font-weight: bold;">ООО
+"Технорос"&copy;</big></td>
+                </tr>
+                <tr>
+                  <td style="vertical-align: top;"><input id="tTime" readonly="readonly" name="Data" value="22.07.2015 08:49"></td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; vertical-align: top;">
+                          <input id="bSetTime" name="bSetTime" value="Установить время компьютера" type="button">
+                  </td>
+                </tr>
+                <tr><td><table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr><td width="60%">Рудозасоряющих:</td><td width="20%"><label id="lRZ">9999</label></td><td rowspan="2"><input id="bCrearCounts" type="button" title="Сброс счетчиков" value="Сброс"></td></tr>  
+                    <tr><td width="60%">Негабаритов:</td><td width="20%"><label id="lNG">9999</label></td></tr>
+                </table></td></tr>
+              </tbody>
+            </table>
+            </td>
+            <td style="width: 306px; height: 98px; border-left: 1px; border-left-style: solid">
+            <table style="text-align: left; width: 305px; height: 60px;" border="0" cellpadding="2" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td style="width: 87px; vertical-align: top;">Калибровка</td>
+                  <td style="width: 444px; vertical-align: top;">
+                  <select style="width: 200px;" id="sCalibrate" name="calibrate">
+                  <option disabled="disabled" value="-1">Выбор
+уровня</option>
+                  <option value="0">Точно</option>
+                  <option value="1">Нормально</option>
+                  <option value="2" selected="selected">Грубо</option>
+                  <option value="3">Уровень 3</option>
+                  <option value="4">Уровень 4</option>
+                  </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Канал</td>
+                  <td>
+                  <select style="width: 200px;" id="sChannel" name="channel">
+                  <option disabled="disabled" value="-1">Выбор каналов</option>
+                  <option selected="selected" value="-1">Все каналы</option>
+                  <option disabled="disabled" value="-2">Ближ. половина</option>
+                  <option disabled="disabled" value="-3">Дальн. половина</option>
+                  <option disabled="disabled" value="0">Канал 0</option>
+                  <option disabled="disabled" value="1">Канал 1</option>
+                  <option disabled="disabled" value="2">Канал 2</option>
+                  <option disabled="disabled" value="3">Канал 3</option>
+                  <option disabled="disabled" value="4">Канал 4</option>
+                  <option disabled="disabled" value="5">Канал 5</option>
+                  </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input id="cbIsCurrentCalibrate" disabled="disabled" name="isCurrent" type="checkbox"></td>
+                  <td><label for="cbIsCurrentCalibrate">Текущая калибровка</label></td>
+                </tr>
+                <tr><td colspan="2"><label id="lSotfState" class="textStates">ПО работает</label></td></tr>
+                <tr><td colspan="2"><label id="lHardState" class="textStates">ЗУ работает</label></td></tr>
+              </tbody>
+            </table>
+            </td>
+            <td style="width: 30%; height: 98px; border-left: 1px; border-left-style: solid">
+                <fieldset id="fsChannelsCount"><legend>Кол-во каналов</legend>
+                    <input checked="checked" name="channels" value="1" type="radio">Для всех каналов<br>
+                    <input name="channels" value="2" type="radio">Две половины<br>
+                    <input name="channels" value="6" type="radio">Каналы раздельно
+                </fieldset>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table style="text-align: left; width: 100%; height: 204px;" border="1" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="width: 700px;">
+            <div id="divGrCanva" align="center"></div>
+            </td>
+            <td style="text-align: center; vertical-align: top; width: 30%;">
+            <table style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td style="width: 100%;">
+                  <table style="text-align: left; height: 44px;" border="0" cellpadding="5" cellspacing="5">
+                    <tbody>
+                      <tr>
+                        <td style="width: 74px; text-align: right;">Sigma</td>
+                        <td style="width: 224px; text-align: left;">
+                            <input class="sigma_len ather" disabled="disabled" type="number" id="tSigma" maxlength="5" size="5" name="tSigma" value="10" step="0.1"></td>
+                      </tr>
+                      <tr>
+                        <td style="width: 74px; text-align: right;">Длина</td>
+                        <td style="width: 224px;">
+                            <input  class="sigma_len ather" disabled="disabled" type="number" id="tLength" maxlength="5" size="5" name="tLength" value="50"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                </tr>
+                <tr>
+                  <td>
+                  <table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="0">
+                    <tbody>
+                      <tr>
+                        <td><img style="width: 35px; height: 40px;" id="iLamp0" title="Металл в 0 канале" alt="" src="images/lamp_white.png"></td>
+                        <td><img style="width: 35px; height: 40px;" id="iLamp1" title="Металл в 1 канале" alt="" src="images/lamp_white.png"></td>
+                        <td><img style="width: 35px; height: 40px;" id="iLamp2" title="Металл во 2 канале" alt="" src="images/lamp_white.png"></td>
+                        <td><img style="width: 35px; height: 40px;" id="iLamp3" title="Металл в 3 канале" alt="" src="images/lamp_white.png"></td>
+                        <td><img style="width: 35px; height: 40px;" id="iLamp4" title="Металл в 4 канале" alt="" src="images/lamp_yellow.png"></td>
+                        <td><img style="width: 35px; height: 40px;" id="iLamp5" title="Металл в 5 канале" alt="" src="images/lamp_yellow.png"></td>
+                      </tr>
+                      <tr>
+                          <td colspan="6">
+                              <div id="divEventsDetail" style="display: none;">
+                                  <table style="width: 100%">
+                                      <tr>
+                                          <td class="td_ev"><label id="lSigma0" class="lb">99.9</label></td>
+                                          <td class="td_ev"><label id="lSigma1" class="lb">99.9</label></td>
+                                          <td class="td_ev"><label id="lSigma2" class="lb">99.9</label></td>
+                                          <td class="td_ev"><label id="lSigma3" class="lb">99.9</label></td>
+                                          <td class="td_ev"><label id="lSigma4" class="lb">99.9</label></td>
+                                          <td class="td_ev"><label id="lSigma5" class="lb">99.9</label></td>
+                                      </tr>
+                                      <tr>
+                                          <td class="td_ev"><label id="lLength0" class="lb">999</label></td>
+                                          <td class="td_ev"><label id="lLength1" class="lb">999</label></td>
+                                          <td class="td_ev"><label id="lLength2" class="lb">999</label></td>
+                                          <td class="td_ev"><label id="lLength3" class="lb">999</label></td>
+                                          <td class="td_ev"><label id="lLength4" class="lb">999</label></td>
+                                          <td class="td_ev"><label id="lLength5" class="lb">999</label></td>
+                                      </tr>
+                                  </table>
+                              </div>
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+          <tr>
+              <td>
+                  <div style="display: none;" id="divParabola">
+                      <table border="0" style="width: 100%"><tr><td width="50%" style="vertical-align: top;">
+                      <div style="text-align: left; padding-left: 5px">
+                      Parabola:<br>
+                      Len:&nbsp;<label id="parLen" style="font-weight: bold">999</label><br>
+                      Min:&nbsp;<label id="parMin" style="font-weight: bold">999</label>
+                      </div></td>
+                      <td style="vertical-align: top;">
+                      <div style="text-align: left; padding-left: 5px">
+                          Sq:<br>
+                          Min:&nbsp;<label id="sqMin" style="font-weight: bold">999</label>
+                      </div></td></tr></table>
+                  </div>
+              </td>
+          </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td style="width: 166px;">
+                <div style="position: relative">
+                    <div class="popup_forms form_confirm" id="form_confirm_store">
+                        <span class="modal_close" id="confirm_close"><img src="images/Close_Box_Red.png" title="Закрыть"></span> <!-- Кнoпкa зaкрыть -->
+                        <div><label>Вы уверены, что хотите сохранить данные,<br>
+                                измененные в процессе настройки</label></div>
+                        <div><input class="form_modal_buttom" type="button" id="bOkConfirm" value="Да"><input class="form_modal_buttom" type="button" id="bCancelConfirm" value="Нет"></div>
+                        
+                    </div>
+                    <input id="bStore" disabled="disabled" name="bSaved" value="Сохранить в рецепте" type="button">
+                </div>
+            </td>
+            <td><input id="bRestore" disabled="disabled" name="bRestore" value="Сбросить изменения" type="button"></td>
+            <td style="width: 241px;"><input id="bAsCurrent" disabled="disabled" name="bSetCurrentCalibrate" value="Установить как текущую" type="button"></td>
+            <td style="width: 32px;">
+                <div style="position: relative;">
+                    <div class="popup_forms form_passwd" id="dPasswd" title="Введите пароль">
+                    <span class="modal_close" id="modal_close"><img src="images/Close_Box_Red.png" title="Закрыть"></span> <!-- Кнoпкa зaкрыть -->
+                    <span class="style4"> Пароль</span>:
+                    <input id="tPasswd" name="pass" type="password" size="8"> <br>
+                    <input type="button" id="bPasswd" name="Submit" value="Ок" class="form_modal_buttom">
+                    </div>
+
+                    <input id="cbTunning" name="cbTunning" type="checkbox">
+                </div>
+            </td>
+            <td style="width: 125px;">Режим настройки</td>
+            <td style="width: 32px;"><input id="chNonStopMode" disabled="disabled" name="isNonStopMode" type="checkbox"></td>
+            <td style="width: 205px;">Без останова конвейера</td>
+            <td><input id="addGraphics" type="checkbox"></td><td>Доп. график.</td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

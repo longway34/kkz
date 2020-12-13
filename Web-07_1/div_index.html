@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Настройка Металлодитектора</title>
+        <meta charset="UTF-8" lang="ru">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="styles/div_stiles.css" rel="stylesheet" type="text/css">
+
+        <script type="text/javascript" src="js/jquery-2.1.3.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="js/jquery.flot.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="js/jquery.flot.time.js" charset="UTF-8"></script>
+                
+        <!--<script type="text/javascript" src="js/jquery.numberformatter-1.2.4.js" charset="UTF-8"></script>-->
+        <script type="text/javascript" src="js/jquery-ui.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="js/cookies.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="js/jquery.timer.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="js/Blob.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="js/canvas-toBlob.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="js/FileSaver.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="js/div_paint.js" charset="UTF-8"></script>
+        <script type="text/javascript" src="js/div_scripts.js" charset="UTF-8"></script>
+    </head>
+    <body>
+<!--        <div id="divPasswd" class="div_passwd">
+            <label class="">Введите пароль или нажмите Ecs</label><br>
+            <input type="password" id="iPassword">
+        </div>-->
+        <div id="div_state" class="div_graphics_main">
+            <div class="div_graphics_state">
+		<div id="frmsignin">
+			<label for="password">Пароль</label><br />
+			<input id="password" name="password" value="" title="password" tabindex="2" type="password" />
+			<p class="submit">
+			<input id="submitbtn" value="Войти" tabindex="3" type="button" />
+			</p>
+			<p id="msg"></p>
+		</div>
+                Время на устройстве:&nbsp;<span class="span_state" id="lTime">
+                    <script type="text/javascript">
+                        function getBrouser(){
+                            var ua = navigator.userAgent;
+                            if (ua.search(/MSIE/) > -1) return "ie";
+                            else if (ua.search(/Firefox/) > -1) return "firefox";
+                            else if (ua.search(/Opera/) > -1) return "opera";
+                            else if (ua.search(/Chrome/) > -1) return "chrome";
+                            else if (ua.search(/Safari/) > -1) return "safari";
+                            else if (ua.search(/Konqueror/) > -1) return "konqueror";
+                            else if (ua.search(/Iceweasel/) > -1) return "iceweasel";
+                            else if (ua.search(/SeaMonkey/) > -1) return "seamonkey";
+                            else return "noname";
+                        }
+                        function getOS(){
+                            var ua = navigator.userAgent;
+                            if(ua.search(/Linux/) > -1) return "linux";
+                            else if(ua.search(/Windows/) > -1) return "windows";
+                            else if(ua.search(/iOS/) > -1) return "ios";
+                            else return "noname";
+                        }
+                        
+                        var activeTime = 0;
+                        if((getBrouser() !== "firefox") && (getBrouser() !== "ie")){
+                            activeTime = 1;
+                            $(document).find("#lTime").first().html("<input type=\"datetime-local\" id=\"iTime\">");
+                        } else {
+                            activeTime = 0;
+                            $(document).find("#lTime").first().html("<label id=\"iTime\">01.01.2015 12:12:59</label>");
+                        }
+                                
+                    </script>
+                </span><br>
+                <button id="bSetCompTime" title="Установить время компьютера">Установить время компьютера</button><br>
+                Сосотояние оборудования:&nbsp;<span class="span_state" id="dev_state">Работает нормально</span><br>
+                Детектор:&nbsp;<span class="span_state" id="soft_state">Работает нормально</span><br>
+                <span><input type="checkbox" id="cbNonStop"><label for="cbNonStop">Режим Non Stop <span class="span_state" id="spNonStop">выключен</span></label></span><br>
+            </div>
+            <div class="div_graphics_state">
+<div id="lampsPanel">
+    <img src="images/lamp_white_3.png" width="45" height="45" id="l_0" alt="Лампа канала 0" title="Лампа канала 0" class="lamps_white"/>
+    <img src="images/lamp_white_3.png" width="45" height="45" id="l_1" alt="Лампа канала 1" title="Лампа канала 1"/>
+    <img src="images/lamp_white_3.png" width="45" height="45" id="l_2" alt="Лампа канала 2" title="Лампа канала 2"/>
+    <img src="images/lamp_white_3.png" width="45" height="45" id="l_3" alt="Лампа канала 3" title="Лампа канала 3"/>
+    <img src="images/lamp_white_3.png" width="45" height="45" id="l_4" alt="Лампа канала 4" title="Лампа канала 4"/>
+    <img src="images/lamp_white_3.png" width="45" height="45" id="l_5" alt="Лампа канала 5" title="Лампа канала 5"/></div>
+                <span><input type="checkbox" id="cbTunning"><label for="cbTunning">Режим калибровки <span class="span_state" id="spTunning">выключен</span></label></span><br>
+                <span><input type="checkbox" id="cbSaveDump"><label for="cbSaveDump">Запись DMA <span class="span_state" id="spSaveDMA">неактивен</span></label></span><br>
+                <span><input type="checkbox" id="cbSaveSumm"><label for="cbSaveSumm">Запись файла сумм <span class="span_state" id="spSaveSumm">неактивен</span></label></span><br>
+                <span>Режим работы ридера: <span class="span_state" id="spReader">Файл Dump: /home/longway/Common/dump1.bin</span>
+            </div>
+            <div class="div_graphics_state">
+            </div>
+        </div>
+        <div id="div_graphics_main" class="div_graphics_main"> <!-- Главный квадрат -->
+            <div class="div_graphics top_left" id="gr_0"> <!-- left top graphic place  -->
+                <div class="gr_canvas" id="gr_canvas_0"></div> <!--  canvas graphic -->
+                <div class="gr_controls"> <!-- left control panel -->
+                    <select id="gr_channel_0" class="gr_control_element" title="Выбор канала графика">
+                        <option disabled value="-1">Выб. канала</option>
+                        <option value="0" selected>Канал 0</option>
+                        <option value="1">Канал 1</option>
+                        <option value="2">Канал 2</option>
+                        <option value="3">Канал 3</option>
+                        <option value="4">Канал 4</option>
+                        <option value="5">Канал 5</option>
+                    </select>
+                    <select id="gr_type_0" class="gr_control_element" title="Выбор типа графика">
+                        <option disabled value="-1">Выб. графика</option>
+                        <!--<option value="0">DMA</option>-->
+                        <!--<option value="18">Критерий</option>-->
+                        <option value="16">Критерий 2</option>
+                        <option value="17" selected>Настройка</option>
+                        <!--<option value="21" selected>Дисперисия</option>-->
+                        <option value="1">Суммы</option>
+                        <option value="3">Отношения</option>
+                    </select>
+                    <select id="gr_ratio_0" class="gr_control_element gr_control_element_hidden" title="Отношение">
+                        <option disabled value="-1">Выб. отнош.</option>
+                        <option value="0" selected>Отнош. 0</option>
+                        <option value="1">Отнош. 1</option>
+                    </select>
+                        
+                    <div class="gr_control_element">
+                        <label class="gr_control_labels">Сигма</label>
+                        <input class="gr_control_element" type="number" value="500" id="gr_kk_0" title="Множитель сигмы" min="0.00000001">
+                        <label class="gr_control_labels">Длит-сть</label>
+                        <input class="gr_control_element" type="number" value="0.0001" id="gr_porog_k1_0" title="Длина срабабатания" min="0.00000001">
+                        <input class="gr_control_element" type="number" value="0.0001" id="gr_porog_k2_0" title="Длина Ошибок" min="0.00000001">
+                        <label class="gr_control_labels" id="corrLabel_0">Корреляция</label>
+                        <input class="gr_control_element" type="number" value="0.95" id="gr_porog_corr_0" title="Порог срабабатания корреляции" min="-1" max="1">
+                    </div>
+                </div>
+                <div id="zones_0" class="gr_zones gr_control_element_hidden">
+                    <input type="number" value="6"  class="gr_input_zones" id="z_0_0_min" name="0">
+                    <input type="number" value="16" class="gr_input_zones" id="z_0_0_max" name="0">
+                    <input type="number" value="25" class="gr_input_zones" id="z_0_1_min" name="1">
+                    <input type="number" value="38" class="gr_input_zones" id="z_0_1_max" name="1">
+                    <input type="number" value="43" class="gr_input_zones" id="z_0_2_min" name="2">
+                    <input type="number" value="46" class="gr_input_zones" id="z_0_2_max" name="2">
+                    <input type="number" value="25" class="gr_input_zones" id="z_0_3_min" name="3">
+                    <input type="number" value="38" class="gr_input_zones" id="z_0_3_max" name="3">
+                    <input type="number" value="43" class="gr_input_zones" id="z_0_4_min" name="4">
+                    <input type="number" value="46" class="gr_input_zones" id="z_0_4_max" name="4">
+                </div>
+            </div>
+<!-- rigth top graphic -->
+            <div class="div_graphics top_right" id="gr_1">
+                <div class="gr_canvas" id="gr_canvas_1"></div> <!--  canvas graphic -->
+                <div class="gr_controls"> <!-- left control panel -->
+                    <select id="gr_channel_1" class="gr_control_element" title="Выбор канала графика">
+                        <option disabled value="-1">Выб. канала</option>
+                        <option value="0">Канал 0</option>
+                        <option value="1" selected>Канал 1</option>
+                        <option value="2">Канал 2</option>
+                        <option value="3">Канал 3</option>
+                        <option value="4">Канал 4</option>
+                        <option value="5">Канал 5</option>
+                    </select>
+                    <select id="gr_type_1" class="gr_control_element" title="Выбор типа графика">
+                        <option disabled value="-1">Выб. графика</option>
+                        <!--<option value="0">DMA</option>-->
+                        <!--<option value="18">Критерий</option>-->
+                        <option value="16">Критерий 2</option>
+                        <option value="17" selected>Настройка</option>
+                        <!--<option value="16">Дисперисия</option>-->
+                        <option value="1">Суммы</option>
+                        <option value="3">Отношения</option>
+                    </select>
+                    <select id="gr_ratio_1" class="gr_control_element gr_control_element_hidden" title="Отношение">
+                        <option disabled value="-1">Выб. отнош.</option>
+                        <option value="0" selected>Отнош. 0</option>
+                        <option value="1">Отнош. 1</option>
+                    </select>
+                    <div class="gr_control_element">
+                        <label class="gr_control_element">Сигма</label>
+                        <input class="gr_control_element" type="number" value="500" id="gr_kk_1" title="Множитель сигмы" min="0.00000001">
+                        <label class="gr_control_element">Длит-сть</label>
+                        <input class="gr_control_element" type="number" value="0.0001" id="gr_porog_k1_1" title="Длина срабабатания" min="0.00000001">
+                        <input class="gr_control_element" type="number" value="0.0001" id="gr_porog_k2_1" title="Длина ошибки" min="0.00000001">
+                        <label class="gr_control_element" id="corrLabel_1">Корреляция</label>
+                        <input class="gr_control_element" type="number" value="0.95" id="gr_porog_corr_1" title="Порог срабабатания корреляции" min="-1" max="1">
+                    </div>
+                </div>
+                <div id="zones_1" class="gr_zones gr_control_element_hidden">
+                    <input type="number" value="6"  class="gr_input_zones" id="z_1_0_min" name="0">
+                    <input type="number" value="16" class="gr_input_zones" id="z_1_0_max" name="0">
+                    <input type="number" value="25" class="gr_input_zones" id="z_1_1_min" name="1">
+                    <input type="number" value="38" class="gr_input_zones" id="z_1_1_max" name="1">
+                    <input type="number" value="43" class="gr_input_zones" id="z_1_2_min" name="2">
+                    <input type="number" value="46" class="gr_input_zones" id="z_1_2_max" name="2">
+                    <input type="number" value="25" class="gr_input_zones" id="z_1_3_min" name="3">
+                    <input type="number" value="38" class="gr_input_zones" id="z_1_3_max" name="3">
+                    <input type="number" value="43" class="gr_input_zones" id="z_1_4_min" name="4">
+                    <input type="number" value="46" class="gr_input_zones" id="z_1_4_max" name="4">
+                </div>
+            </div>
+
+<!-- left bottom graphic -->
+            <div class="div_graphics bottom_left" id="gr_2">
+                <div class="gr_canvas" id="gr_canvas_2"></div> <!--  canvas graphic -->
+                <div class="gr_controls"> <!-- left control panel -->
+                    <select id="gr_channel_2" class="gr_control_element" title="Выбор канала графика">
+                        <option disabled value="-1">Выб. канала</option>
+                        <option value="0">Канал 0</option>
+                        <option value="1">Канал 1</option>
+                        <option value="2" selected>Канал 2</option>
+                        <option value="3">Канал 3</option>
+                        <option value="4">Канал 4</option>
+                        <option value="5">Канал 5</option> 
+                    </select>
+                    <select id="gr_type_2" class="gr_control_element" title="Выбор типа графика">
+                        <option disabled value="-1">Выб. графика</option>
+                        <!--<option value="0">DMA</option>-->
+                        <!--<option value="18">Критерий</option>-->
+                        <option value="16">Критерий 2</option>
+                        <option value="17" selected>Настройка</option>
+                        <!--<option value="16">Дисперисия</option>-->
+                        <option value="1">Суммы</option>
+                        <option value="3">Отношения</option>
+                    </select>
+                    <select id="gr_ratio_2" class="gr_control_element gr_control_element_hidden" title="Отношение">
+                        <option disabled value="-1">Выб. отнош.</option>
+                        <option value="0" selected>Отнош. 0</option>
+                        <option value="1">Отнош. 1</option>
+                   </select>
+                    <div class="gr_control_element">
+                        <label class="gr_control_element">Сигма</label>
+                        <input class="gr_control_element" type="number" value="500" id="gr_kk_2" title="Множитель сигмы" min="0.00000001">
+                        <label class="gr_control_element">Длит-сть</label>
+                        <input class="gr_control_element" type="number" value="0.0001" id="gr_porog_k1_2" title="Длина срабабатания" min="0.00000001">
+                        <input class="gr_control_element" type="number" value="0.0001" id="gr_porog_k2_2" title="Длина срабабатания" min="0.00000001">
+                        <label class="gr_control_element" id="corrLabel_2">Корреляция</label>
+                        <input class="gr_control_element" type="number" value="0.95" id="gr_porog_corr_2" title="Порог срабабатания корреляции" min="-1" max="1">
+                    </div>
+                </div>
+                <div id="zones_2" class="gr_zones gr_control_element_hidden">
+                    <input type="number" value="6"  class="gr_input_zones" id="z_2_0_min" name="0">
+                    <input type="number" value="16" class="gr_input_zones" id="z_2_0_max" name="0">
+                    <input type="number" value="25" class="gr_input_zones" id="z_2_1_min" name="1">
+                    <input type="number" value="38" class="gr_input_zones" id="z_2_1_max" name="1">
+                    <input type="number" value="43" class="gr_input_zones" id="z_2_2_min" name="2">
+                    <input type="number" value="46" class="gr_input_zones" id="z_2_2_max" name="2">
+                    <input type="number" value="25" class="gr_input_zones" id="z_2_3_min" name="3">
+                    <input type="number" value="38" class="gr_input_zones" id="z_2_3_max" name="3">
+                    <input type="number" value="43" class="gr_input_zones" id="z_2_4_min" name="4">
+                    <input type="number" value="46" class="gr_input_zones" id="z_2_4_max" name="4">
+                </div>
+            </div>
+            
+<!-- rigth bottom graphic -->
+        <div class="div_graphics bottom_right" id="gr_3">
+                <div class="gr_canvas" id="gr_canvas_3"></div> <!--  canvas graphic -->
+                <div class="gr_controls"> <!-- left control panel -->
+                    <select id="gr_channel_3" class="gr_control_element" title="Выбор канала графика">
+                        <option disabled value="-1">Выб. канала</option>
+                        <option value="0">Канал 0</option>
+                        <option value="1">Канал 1</option>
+                        <option value="2">Канал 2</option>
+                        <option value="3">Канал 3</option>
+                        <option value="4">Канал 4</option>
+                        <option value="5" selected>Канал 5</option>
+                    </select>
+                    <select id="gr_type_3" class="gr_control_element" title="Выбор типа графика">
+                        <option disabled value="-1">Выб. графика</option>
+                        <!--<option value="0">DMA</option>-->
+                        <!--<option value="18">Критерий</option>-->
+                        <option value="16">Критерий 2</option>
+                        <option value="17" selected>Настройка</option>
+                        <!--<option value="16">Дисперисия</option>-->
+                        <option value="1">Суммы</option>
+                        <option value="3">Отношения</option>
+                    </select>
+                    <select id="gr_ratio_3" class="gr_control_element gr_control_element_hidden" title="Отношение">
+                        <option disabled value="-1">Выбор отн.</option>
+                        <option value="0" selected>Отнош. 0</option>
+                        <option value="1">Отнош. 1</option>
+                    </select>
+                    <div class="gr_control_element">
+                        <label class="gr_control_element">Сигма</label>
+                        <input class="gr_control_element" type="number" value="500" id="gr_kk_3" title="Множитель сигма" min="0.00000001">
+                        <label class="gr_control_element">Длит-сть</label>
+                        <input class="gr_control_element" type="number" value="0.0001" id="gr_porog_k1_3" title="Длина срабабатания" min="0.00000001">
+                        <input class="gr_control_element" type="number" value="0.0001" id="gr_porog_k2_3" title="Длина ошибок" min="0.00000001">
+                        <label class="gr_control_element" id="corrLabel_3">Корреляция</label>
+                        <input class="gr_control_element" type="number" value="0.95" id="gr_porog_corr_3" title="Порог срабабатания корреляции" min="-1" max="1">
+                    </div>
+                </div>
+                <div id="zones_3" class="gr_zones gr_control_element_hidden">
+                    <input type="number" value="6"  class="gr_input_zones" id="z_3_0_min" name="0">
+                    <input type="number" value="16" class="gr_input_zones" id="z_3_0_max" name="0">
+                    <input type="number" value="25" class="gr_input_zones" id="z_3_1_min" name="1">
+                    <input type="number" value="38" class="gr_input_zones" id="z_3_1_max" name="1">
+                    <input type="number" value="43" class="gr_input_zones" id="z_3_2_min" name="2">
+                    <input type="number" value="46" class="gr_input_zones" id="z_3_2_max" name="2">
+                    <input type="number" value="25" class="gr_input_zones" id="z_3_3_min" name="3">
+                    <input type="number" value="38" class="gr_input_zones" id="z_3_3_max" name="3">
+                    <input type="number" value="43" class="gr_input_zones" id="z_3_4_min" name="4">
+                    <input type="number" value="46" class="gr_input_zones" id="z_3_4_max" name="4">
+                </div>
+            
+        </div> 
+            <div class="div_controls">
+                <input type="button" id="graphics_clear" value="Очистить график">
+                <input type="button" id="recept_store" value="Сохранить параметры">
+                <input type="button" id="recept_defautl" value="Восстановить (default)">
+            </div>
+        </div>
+        <div class=div_controls id="console"></div>
+    </body>
+</html>
