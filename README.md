@@ -12,10 +12,10 @@
 * Генератор прямоугольного электромагнитного сигнала в том числе передающей катушки излучения, монтируемой над транспортной (конвейерной) лентой, разработки ООО «Технорос».
 * Комплекс приемных электромагнитных катушек, оснащенных предварительным усилителем, располагающихся под транспортной (конвейерной) лентой, разработки ООО «Технорос»
 * Основной вычислительный комплекс, выполненный на базе Одноплатного компьютера формата PC/104-Plus Advantech PCM-3362
-![Advantech PCM-3362](https://raw.githubusercontent.com/longway34/kkz/main/Common/demo_images/DM-7520.png "Advantech PCM-3362")
+![Advantech PCM-3362](https://raw.githubusercontent.com/longway34/kkz/main/Common/demo_images/PCM-3362.png "Advantech PCM-3362")
 
 в комплекте с АЦП RTD Embedded Technologies, Inc. DM-7520
-![RTD Embedded Technologies, Inc. DM-7520](https://raw.githubusercontent.com/longway34/kkz/main/Common/demo_images/PCM-3362.png "RTD Embedded Technologies, Inc. DM-7520")
+![RTD Embedded Technologies, Inc. DM-7520](https://raw.githubusercontent.com/longway34/kkz/main/Common/demo_images/DM-7520.png "RTD Embedded Technologies, Inc. DM-7520")
 
 ---
 
