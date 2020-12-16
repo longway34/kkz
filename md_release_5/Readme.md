@@ -53,3 +53,15 @@
 * libmodbus5, 3.0.6-1;
 * применялась многопоточность libpthread-stubs0-dev, 0.3.4;
 * драйверы устройства DM-7520, доработанные под спецификации ОС Linux Ubuntu;
+
+---
+
+Средство разработки.
+Для разработки и представления данной демо-версии использовались:
+* IDE:
+
+![NetBeans](https://raw.githubusercontent.com/longway34/kkz/main/Common/demo_images/NetBeans.png "NetBeans")
+
+* Среда разработки подготовлена с использованием:
+
+![VirtualBox](https://raw.githubusercontent.com/longway34/kkz/main/Common/demo_images/VirtualBox.png "VirtualBox")
